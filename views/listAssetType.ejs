@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Asset Types</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+
+
+<% include templates\header %>
+    <ul>
+        <%
+            data.forEach(function(assetType) {  %>
+            <li> <%= assetType.name %> - <%= assetType.inspectionFrequency %> </li>
+        <%  });     %>
+    </ul>
+</body>
+</html>
