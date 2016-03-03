@@ -1,19 +1,33 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Asset Types</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-<body>
+
+                <% include templates\header %>
+
+
+                <legend>Asset Types</legend>
+
+                    <%
+
+                    var itemListLink_Data = { items: []};
+
+                    data.forEach(function(assetType) {
+
+                        var itemListLink = {
+                            "title":assetType.name,
+                            "url": "./"+assetType._id,
+                            "imageURL":"http://lorempixel.com/90/90/",
+                            "detail1":"Inspection Frequency: Every " + assetType.inspectionFrequency + " Days",
+                            "detail2":"",
+                            "detail3":""
+                        }
+
+                        itemListLink_Data.items.push(itemListLink);
 
 
 
-<% include templates\header %>
-    <ul>
-        <%
-            data.forEach(function(assetType) {  %>
-            <li> <%= assetType.name %> - <%= assetType.inspectionFrequency %> </li>
-        <%  });     %>
-    </ul>
-</body>
-</html>
+                    });
+                    %>
+                <% include templates\itemListLink %>
+
+
+
+
+                <% include templates\footer %>
